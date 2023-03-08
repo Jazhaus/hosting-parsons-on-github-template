@@ -1,0 +1,50 @@
+Now, let's put what we've learned about loops to work!
+
+Drag and drop the code below to write a sum_all_numbers(x, y) function that takes two numbers, x and y, and returns the sum of all numbers between x and y (inclusive). Below are a few example inputs:
+
+>>> sum_all_numbers(1, 4)
+10
+>>> sum_all_numbers(2, 3)
+5
+
+<div id="sortableTrash" class="sortable-code"></div> 
+<div id="sortable" class="sortable-code"></div> 
+<div style="clear:both;"></div> 
+<p> 
+    <input id="feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="newInstanceLink" value="Reset Problem" type="button" /> 
+</p> 
+<script type="text/javascript"> 
+(function(){
+  var initial = "def sum_all_numbers(x, y):\n" +
+    "	total = 0\n" +
+    "    for i in range(x, y + 1):\n" +
+    "    	total = total + i\n" +
+    "    return total\n" +
+    "        \n" +
+    "for i in range(x, y): #distractor\n" +
+    "for i in range(x+1, y + 1): #distractor\n" +
+    "for i in range(x+1): #distractor";
+  var parsonsPuzzle = new ParsonsWidget({
+    "sortableId": "sortable",
+    "max_wrong_lines": 10,
+    "grader": ParsonsWidget._graders.LineBasedGrader,
+    "exec_limit": 2500,
+    "can_indent": true,
+    "x_indent": 50,
+    "lang": "en",
+    "show_feedback": true,
+    "trashId": "sortableTrash"
+  });
+  parsonsPuzzle.init(initial);
+  parsonsPuzzle.shuffleLines();
+  $("#newInstanceLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.shuffleLines(); 
+  }); 
+  $("#feedbackLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.getFeedback(); 
+  }); 
+})(); 
+</script>
